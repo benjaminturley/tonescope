@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en-us">
+
+<head>
+	<title>Online Metronome with Time Signature | TONESCOPE</title>
+	<meta name="description" content="Generate variable beats at a custom tempo displayed on a simple clock metronome. Practice timing with a standard meter reference.">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/metronome.css">
+	<script src="js/jquery.js"></script>
+	<script src="js/social-media.js"></script>
+</head>
+
+<body>
+	<h1><a id="title" href="/"><span style="color: white">TONE</span>SCOPE</a></h1>
+	<div class="subtitle"><a href="changelog">CHANGELOG</a></div>
+  <div id="plug">If you like my stuff, my lastest project is <a href="https://mellowtalk.com">mellowtalk.com</a>. It's an ad free, no cost, anyonymous chat service for the promotion of mental health. Good talkers give points, good listeners get points. Enjoy!</div>
+<style>
+#plug {
+  background: gray;
+  color: #DDDDDD;
+  border-left: 3px solid white;
+  margin-top: 10px;
+  padding: 6px;
+  font-size: 14px;
+  font-family: Verdana;
+}
+
+#plug a {
+  text-decoration: underline;
+}
+</style>
+	<div class="share">
+		<div class="share-btn">
+			<a href="" onclick="window.open('https://twitter.com/home?status=' + encodeURIComponent(window.location.host + window.location.pathname) + ' via @tonescope','popup','width=600,height=400'); return false;">
+				<img src="images/twitter.png">
+			</a>
+			<br><div class="count">@ts</div>
+		</div>
+		<div class="share-btn" data-service="facebook">
+			<a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.host + window.location.pathname),'popup','width=600,height=400'); return false;">
+				<img src="images/facebook.png">
+			</a>
+			<br><div class="count">-</div>
+		</div>
+		<div class="share-btn" data-service="google">
+			<a href="" onclick="window.open('https://plus.google.com/share?url=' + encodeURIComponent(window.location.host + window.location.pathname),'popup','width=600,height=400'); return false;">
+				<img src="images/google.png">
+			</a>
+			<br><div class="count">-</div>
+		</div>
+		<div class="share-btn" data-service="reddit">
+			<a href="" onclick="window.open('//www.reddit.com/submit?url=' + encodeURIComponent(window.location.host + window.location.pathname),'popup','width=900,height=800'); return false;">
+				<img src="images/reddit.png">
+			</a>
+			<br><div class="count">-</div>
+		</div>
+		<div class="share-btn" data-service="stumbleupon">
+			<a href="" onclick="window.open('http://www.stumbleupon.com/likecontent?url=' + encodeURIComponent(window.location.host + window.location.pathname),'popup','width=600,height=500'); return false;">
+				<img src="images/stumbleupon.png">
+			</a>
+			<br><div class="count">-</div>
+		</div>
+	</div>
+	<div class="adspace" id="adspace_1">
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<ins class="adsbygoogle"
+		style="display:block"
+		data-ad-client="ca-pub-1724991872197004"
+		data-ad-slot="8806570777"
+		data-ad-format="vertical"></ins>
+		<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+	</div>
+	<div class="adspace" id="adspace_2">
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<ins class="adsbygoogle"
+		style="display:block"
+		data-ad-client="ca-pub-1724991872197004"
+		data-ad-slot="8806570777"
+		data-ad-format="vertical"></ins>
+		<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+	</div>
+	<h2 style="margin-bottom: 0">METRONOME</h2>
+	<hr color="gray"><br>
+	<canvas id="nome" width="400" height="400"></canvas>
+	<br>
+	<div style="display: inline-block; width: 10%">
+		<label for="beats">Beats/Bar</label>
+		<input id="beats"></input>
+	</div>
+	<div style="display: inline-block; width: 10%">
+		<label for="bpm">BPM</label>
+		<input id="bpm"></input>
+	</div>
+	<input id="slider" type="range" min="20" max="200" defaultValue="100" onchange="setBPM(this.value)" oninput="setBPM(this.value)"/><br><br>
+	<button class="button" id="play-button" onclick="press()">PLAY</button><br><br><br>
+	<p class="special-title">Tempo Presets</p>
+	<div>
+		<div class="options">
+			<button id="largo" onclick="setBPM(40)">40</button>
+			<label for="largo">Largo</label>
+		</div>
+		<div class="options">
+			<button id="adagio" onclick="setBPM(60)">60</button>
+			<label for="adagio">Adagio</label>
+		</div>
+		<div class="options">
+			<button id="andante" onclick="setBPM(80)">80</button>
+			<label for="andante">Andante</label>
+		</div>
+		<div class="options">
+			<button id="moderato" onclick="setBPM(100)">100</button>
+			<label for="moderato">Moderato</label>
+		</div>
+		<div class="options">
+			<button id="allegro" onclick="setBPM(120)">120</button>
+			<label for="allegro">Allegro</label>
+		</div>
+		<div class="options">
+			<button id="vivace" onclick="setBPM(140)">140</button>
+			<label for="vivaco">Vivace</label>
+		</div>
+		<div class="options">
+			<button id="presto" onclick="setBPM(160)">160</button>
+			<label for="grave">Presto</label>
+		</div>
+	</div>
+	<h2 id="about">About</h2>
+	<p class="info" style="text-align: center">
+		This tool displays a clock metronome configured by determining beats per bar and setting BPM with common time presets
+	</p>
+	<div class="header-wrapper"><h3>Instructions</h3></div>
+	<p class="info">Press the play button to start and stop the metronome sound. Change the BPM with the slider and configure the beats and BPM with the labeled panels. Select a common tempo using the preset buttons.</p>
+	<div class="header-wrapper"><h4>BPM</h4></div>
+	<p class="info">
+		BPM, or Beats Per Minute, is a measurement of tempo designated as the total number of beats within a 60 second time frame. In this case, the beats will be displayed around the metronome at black interval markings. When the hand reaches a marking the corresponding tick will be made. The BPM can be set by using the slider. Note that the slider has a minimum of 20 and a maximum of 200. This can be bypassed by entering the desired number into the labeled input manually. There is a global maximum of 400 BPM.
+
+		<br><br>Use the preset tempos to set the BPM to common times.
+	</p>
+	<div class="header-wrapper"><h4>Beats</h4></div>
+	<p class="info">
+		The beats value describes the total amount of up beats contained within a bar (measure). It is commonly seen as the top number in a musical <a href="https://en.wikipedia.org/wiki/Time_signature">time signature</a>. In this case, the end of the bar will be denoted with an up beat. The up beats are displayed as long interval markings and the total number is equivalent to the BPM divided by the beats per measure. The total number of beats cannot exceed the BPM.
+	</p>
+	<div class="header-wrapper"><h3>Uses</h3></div>
+	<p class="info">
+		Musicians can use the metronome to assist in keeping steady tempo when singing or playing music. It also serves to benefit internal internal timing and tempo by helping with irregularities in counting beats. The metronome is also often used by composers as a standard tempo reference, to indicate the intended tempo for the piece.
+	</p>
+	<div class="adspace" id="adspace_3">
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<ins class="adsbygoogle"
+		style="display:block"
+		data-ad-client="ca-pub-1724991872197004"
+		data-ad-slot="8806570777"
+		data-ad-format="auto"></ins>
+		<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+	</div>
+	<audio id="klack">
+		<source src="audio/klack.mp3" type="audio/mpeg"/>
+		<source src="audio/klack.ogg" type="audio/ogg"/>
+	</audio>
+	<audio id="pop">
+		<source src="audio/pop.mp3" type="audio/mpeg"/>
+		<source src="audio/pop.ogg" type="audio/ogg"/>
+	</audio>
+
+</body>
+<script src="js/metronome.js" type="text/JavaScript"></script>
+
+</html>

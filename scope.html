@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en-us">
+
+<head>
+  <title>Note Name and Pitch from Microphone | TONESCOPE</title>
+  <meta name="description" content="Use live microphone input to find note name, octave and pitch. Tune instruments or find your range with a simple, user-friendly interface.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" type="text/css" href="css/scope.css">
+  <script src="js/jquery.js"></script>
+  <script src="js/social-media.js"></script>
+</head>
+
+<body>
+  <h1><a id="title" href="/"><font color="White">TONE</font>SCOPE</a></h1>
+  <div class="subtitle"><a href="changelog">CHANGELOG</a></div>
+  <div id="plug">If you like my stuff, my lastest project is <a href="https://mellowtalk.com">mellowtalk.com</a>. It's an ad free, no cost, anyonymous chat service for the promotion of mental health. Good talkers give points, good listeners get points. Enjoy!</div>
+<style>
+#plug {
+  background: gray;
+  color: #DDDDDD;
+  border-left: 3px solid white;
+  margin-top: 10px;
+  padding: 6px;
+  font-size: 14px;
+  font-family: Verdana;
+}
+
+#plug a {
+  text-decoration: underline;
+}
+</style>
+  <div class="share">
+    <div class="share-btn">
+      <a href="" onclick="window.open('https://twitter.com/home?status=' + encodeURIComponent(window.location.host + window.location.pathname) + ' via @tonescope','popup','width=600,height=400'); return false;">
+        <img src="images/twitter.png">
+      </a>
+      <br><div class="count">@ts</div>
+    </div>
+    <div class="share-btn" data-service="facebook">
+      <a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.host + window.location.pathname),'popup','width=600,height=400'); return false;">
+        <img src="images/facebook.png">
+      </a>
+      <br><div class="count">-</div>
+    </div>
+    <div class="share-btn" data-service="google">
+      <a href="" onclick="window.open('https://plus.google.com/share?url=' + encodeURIComponent(window.location.host + window.location.pathname),'popup','width=600,height=400'); return false;">
+        <img src="images/google.png">
+      </a>
+      <br><div class="count">-</div>
+    </div>
+    <div class="share-btn" data-service="reddit">
+      <a href="" onclick="window.open('//www.reddit.com/submit?url=' + encodeURIComponent(window.location.host + window.location.pathname),'popup','width=900,height=800'); return false;">
+        <img src="images/reddit.png">
+      </a>
+      <br><div class="count">-</div>
+    </div>
+    <div class="share-btn" data-service="stumbleupon">
+      <a href="" onclick="window.open('http://www.stumbleupon.com/likecontent?url=' + encodeURIComponent(window.location.host + window.location.pathname),'popup','width=600,height=500'); return false;">
+        <img src="images/stumbleupon.png">
+      </a>
+      <br><div class="count">-</div>
+    </div>
+  </div>
+  <div class="adspace" id="adspace_1">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <ins class="adsbygoogle"
+    style="display:block"
+    data-ad-client="ca-pub-1724991872197004"
+    data-ad-slot="8806570777"
+    data-ad-format="vertical"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  <div class="adspace" id="adspace_2">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <ins class="adsbygoogle"
+    style="display:block"
+    data-ad-client="ca-pub-1724991872197004"
+    data-ad-slot="8806570777"
+    data-ad-format="vertical"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  <h2 style="margin-bottom: 0">MICROPHONE RESOLVER</h2>
+  <hr color="gray">
+  <p id="state">JavaScript is having problems accessing your microphone (see below for details)</p><br><br>
+  <div id="noteElem">
+    <p id="note">--</p>
+  </div>
+  <div></div>
+  <div id="pitchElem">
+    <p id="pitch">----</p>
+  </div>
+  <canvas id="graph"></canvas>
+  <div id="noteList"></div>
+
+  <h2 id="about">About</h2>
+  <p class="info" style="text-align: center">This tool receives microphone input and determines the note name, octave, and pitch while printing the notes every half second and visualizing the noise</p>
+  <div class="header-wrapper"><h3>Instructions</h3></div>
+  <p class="info">
+    Connect a microphone to the website by ensuring the browser is up to date and has proper permissions. Then, with the smallest possible background noise: sing, whistle or play whatever sound you wish to determine the note of and read the information displayed within the block.
+    <br><br>Keep in mind that the sharp version of one note (<span style="color: yellow;">C#</span>) is the same as the flat version of the next note one half-step higher (<span style="color: yellow;">D<em>b</em></span>). The reason there is only one note printed was purely to save space. 
+  </p>
+  <div class="header-wrapper"><h4>Microphone State Messages</h4></div>
+  <p class="info">
+    <ul>
+      <li>microphone is <span style="color: green">enabled</span>: Microphone is connected to the website</li>
+      <li>microphone is <span style="color: red">disabled</span>: Microphone does not have proper permissions</li>
+      <li>JavaScript is having problems accessing your microphone: The browser is unable to run the code on this page</li>
+    </ul>
+  </p>
+  <div class="header-wrapper"><h3>Uses</h3></div>
+  <p class="info">
+    This tool can be used to find anything with a clear pitch, including whistling, tuning an instrument or even singing if you're into that kind of thing. I've been told it also works very well for finding your vocal range without having to use a dedicated source. All in all, its good at resolving anything with a clear, simple waveform so don't get discouraged if your loud relatives are messing with your harmonics.
+  </p>
+  <div class="header-wrapper"><h3>Additional Information</h3></div>
+  <p class="info">
+    The note and pitch element was made with a heavily modified version of the GitHub project <a href="https://github.com/cwilso/PitchDetect"><ins>Pitch Detect</ins></a> by <span style="color: yellow;">Chris Wilson</span>. Super clever stuff on his part.</p>
+    <div class="header-wrapper"><h4>Method</h4></div>
+    <p class="info">It works by taking live microphone input and running an auto-correlation algorithm. It will find the pitch with the best-fit realtime and then extract a note based <a href="https://en.wikipedia.org/wiki/Scientific_pitch_notation">scientific pitch notation</a>. A separate method determines the octave and adds it as a subscript to the note from the same log<sub>2</sub> formula. That means whatever note is clearest at the time will be displayed. You can see the individual notes printed on the bottom, left to right, which may have been the most satisfying thing I've ever made. If you want to check out the code, please do so by all means. If you want to use it just make sure to give credit.</p>
+    <div class="adspace" id="adspace_3">
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+      style="display:block"
+      data-ad-client="ca-pub-1724991872197004"
+      data-ad-slot="8806570777"
+      data-ad-format="auto"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+  </body>
+  <script src="js/scope.js" type="text/JavaScript"></script>
+
+  </html>

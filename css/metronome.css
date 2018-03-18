@@ -1,0 +1,41 @@
+label {
+  display: block;
+  color: white;
+  font-size: 130%;
+}
+
+input {
+	text-align: center;
+	font-size: 200%;
+	font-weight: bold;
+  margin-top: 5px;
+  width: 100%;
+}
+
+#bpm, #beats {
+  border-style: solid;
+  border-radius: 3px;
+  border-width: 2px;
+  border-color: #36588F;
+}
+
+.options {
+  display: inline-block;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+#slider {
+  width: 20%;
+  margin-top: 25px;
+}
+
+.options label {
+  margin-top: 5px;
+  display: block;
+  color: gray;
+}
+
+.special-title {
+  font-size: 150%;
+}

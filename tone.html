@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en-us">
+
+<head>
+  <title>Online Tone and Frequency Generator | TONESCOPE</title>
+  <meta name="description" content="Generate a waveform at a custom frequency and tone with a choice of sine, triangle, square, and sawtooth waves types with a simple, user friendly interface.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" type="text/css" href="css/tone.css">
+  <script src="js/jquery.js"></script>
+  <script src="js/social-media.js"></script>
+</head>
+
+<body>
+  <h1><a id="title" href="/"><span style="color: white">TONE</span>SCOPE</a></h1>
+  <div class="subtitle"><a href="changelog">CHANGELOG</a></div>
+  <div id="plug">If you like my stuff, my lastest project is <a href="https://mellowtalk.com">mellowtalk.com</a>. It's an ad free, no cost, anyonymous chat service for the promotion of mental health. Good talkers give points, good listeners get points. Enjoy!</div>
+<style>
+#plug {
+  background: gray;
+  color: #DDDDDD;
+  border-left: 3px solid white;
+  margin-top: 10px;
+  padding: 6px;
+  font-size: 14px;
+  font-family: Verdana;
+}
+
+#plug a {
+  text-decoration: underline;
+}
+</style>
+  <div class="share">
+    <div class="share-btn">
+      <a href="" onclick="window.open('https://twitter.com/home?status=' + encodeURIComponent(window.location.host + window.location.pathname) + ' via @tonescope','popup','width=600,height=400'); return false;">
+        <img src="images/twitter.png">
+      </a>
+      <br><div class="count">@ts</div>
+    </div>
+    <div class="share-btn" data-service="facebook">
+      <a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.host + window.location.pathname),'popup','width=600,height=400'); return false;">
+        <img src="images/facebook.png">
+      </a>
+      <br><div class="count">-</div>
+    </div>
+    <div class="share-btn" data-service="google">
+      <a href="" onclick="window.open('https://plus.google.com/share?url=' + encodeURIComponent(window.location.host + window.location.pathname),'popup','width=600,height=400'); return false;">
+        <img src="images/google.png">
+      </a>
+      <br><div class="count">-</div>
+    </div>
+    <div class="share-btn" data-service="reddit">
+      <a href="" onclick="window.open('//www.reddit.com/submit?url=' + encodeURIComponent(window.location.host + window.location.pathname),'popup','width=900,height=800'); return false;">
+        <img src="images/reddit.png">
+      </a>
+      <br><div class="count">-</div>
+    </div>
+    <div class="share-btn" data-service="stumbleupon">
+      <a href="" onclick="window.open('http://www.stumbleupon.com/likecontent?url=' + encodeURIComponent(window.location.host + window.location.pathname),'popup','width=600,height=500'); return false;">
+        <img src="images/stumbleupon.png">
+      </a>
+      <br><div class="count">-</div>
+    </div>
+  </div>
+  <br><br>
+  <div class="adspace" id="adspace_1">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <ins class="adsbygoogle"
+    style="display:block"
+    data-ad-client="ca-pub-1724991872197004"
+    data-ad-slot="8806570777"
+    data-ad-format="vertical"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  <div class="adspace" id="adspace_2">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <ins class="adsbygoogle"
+    style="display:block"
+    data-ad-client="ca-pub-1724991872197004"
+    data-ad-slot="8806570777"
+    data-ad-format="vertical"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  <h2 style="margin-bottom: 0">TONE GENERATOR</h2>
+  <hr color="gray">
+  <div id="warning"></div><br><br>
+  <div style="height:1px;"></div>
+  <div class="inputs" style="width: 10%; padding-right: 20px;">  
+    <label for="note">Note</label>
+    <input id="note" readonly></input>
+  </div>
+  <div class="inputs" style="width: 5%;">  
+    <label for="octave">Octave</label>
+    <input id="octave" readonly></input>
+  </div>
+  <div class="inputs" style="width: 10%; margin-left: 50px;">
+    <label for="frequency">Frequency</label>
+    <input id="frequency"></input>
+  </div>
+  <br>
+  <input id="slider" type="range" min="1" max="10000" defaultValue="262" onchange="update(this.value)" oninput="update(this.value)"/><br><br>
+  <button class="button" id="play-button" onclick="press()">PLAY</button><br><br><br>
+  <p id="wave-title">Waveforms</p>
+  <div style="display: inline-block">
+    <div class="options">
+      <button id="sine" onclick="changeWave('sine')"><img src="images/sine.png"></button>
+      <label for="sine">SINE</label>
+    </div>
+    <div class="options">
+      <button id="triangle" onclick="changeWave('triangle')"><img src="images/triangle.png"></button>
+      <label for="triangle">TRIANGLE</label>
+    </div>
+    <div class="options">
+      <button id="square" onclick="changeWave('square')"><img src="images/square.png"></button>
+      <label for="square">SQUARE</label>
+    </div>
+    <div class="options">
+      <button id="sawtooth" onclick="changeWave('sawtooth')"><img src="images/sawtooth.png"></button>
+      <label for="sawtooth">SAWTOOTH</label>
+    </div>
+  </div>
+  <h2 id="about">About</h2>
+  <p class="info" style="text-align: center">
+    This tool generates a waveform of four basic types at a custom frequency and displays the corresponding note and octave
+  </p>
+  <div class="header-wrapper"><h3>Instructions</h3></div>
+  <p class="info">
+    Press the play button to start and stop the tone. It will begin playing at the frequency in the white input box with the default being 262Hz (<span style="color: green">C<sub>4</sub></span>). Slide the scrollbar to change the frequency. The scrollbar had a minimum of 1Hz (<span style="color: green">C<sub>-4</sub></span>) and a maximum of 10,000Hz (<spawn style="color: green">D#<sub>9</sub></spawn>), however the maximum range can be bypassed by entering the frequency in manually. Change the type of waveform being played by clicking on the corresponding button listed under waveforms.
+  </p>
+  <div class="header-wrapper"><h4>Waveforms</h4></div>
+  <ul>
+    <li><em><strong>Sine</strong></em>: The amplitude of the waveform follows a trigonometric sine function with respect to time. Fundamental frequency or "pure tone."</li>
+    <li><em><strong>Triangle</strong></em>: Fundamental frequency joined by odd harmonics that decrease at -12dB/octave. Higher, richer and slightly louder than the sine wave.</li>
+    <li><em><strong>Square</strong></em>: Commonly used to represent digital information. Contains odd harmonics that decrease at -6dB/octave. Harmonics have a greater impact of timbre of the wave.</li>
+    <li><em><strong>Sawtooth</strong></em>: Also called a "ramp." Found often in time bases for display scanning. Can be seen as the "front end" of a triangle wave and the "back end" of a square wave. Generates more overtones, with every harmonic present at gradually decreasing levels.</li>
+  </ul>
+  <div class="header-wrapper"><h3>Uses</h3></div>
+  <p class="info">
+    As a musical tool, tone generation can be used to practice singing or tuning instruments by matching the pitch. There are also a multitude of uses revolving around testing the limits and functionality of audio equipment, as well as in the scientific field with tasks like determining the resonant frequency of objects. 
+
+    <br><br>For those with pure tone tinnitus, this tool can assist in determining its frequency.
+  </p>
+</body>
+<script src="js/jquery.js"></script>
+<script src="js/tone.js" type="text/JavaScript"></script>
+
+</html>

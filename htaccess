@@ -1,0 +1,33 @@
+# Begin cache control #
+ExpiresActive on
+ExpiresDefault "now plus 1440 minutes"
+ExpiresByType text/html "now plus 1440 minutes"
+<FilesMatch "\.(css|htm|html|js)$">
+FileETag MTime Size
+ExpiresDefault "now plus 1440 minutes"
+</FilesMatch>
+
+
+# End cache control #
+
+
+RewriteEngine on
+# Redirect to another domain: tonescope.net.
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} !^(www\.)?tonescope\.net$ [NC]
+RewriteRule .* http://tonescope.net%{REQUEST_URI} [R=301,L]
+# Same for HTTPS:
+RewriteCond %{HTTPS} on
+RewriteCond %{HTTP_HOST} !^(www\.)?tonescope\.net$ [NC]
+RewriteRule .* https://tonescope.net%{REQUEST_URI} [R=301,L]
+# Prevent viewing of htaccess file.
+<Files .htaccess>
+    order allow,deny
+    deny from all
+</Files>
+#Remove .html from URL
+RewriteCond %{REQUEST_FILENAME} !-d 
+RewriteCond %{REQUEST_FILENAME}\.html -f 
+RewriteRule ^(.*)$ $1.html
+RewriteCond %{HTTP_HOST} ^104\.31\.73\.59
+RewriteRule (.*) https://tonescope.net/$1 [R=301,L]

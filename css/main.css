@@ -1,0 +1,343 @@
+/*-----General Text-----*/
+
+body {
+  background: #212121;
+  text-align: center;
+  font-family: monospace;
+  overflow-x: hidden;
+}
+
+h2 {
+  font-size: 250%;
+  font-size: 4vmin;
+  color: rgb(100, 100, 100);
+}
+
+h3 {
+  font-size: 160%;
+  color: rgb(150,150,150);
+  text-decoration: underline;
+}
+
+h4 {
+  font-size: 140%;
+  color: rgb(90,90,90);
+}
+
+h3, h4 {
+  text-align: left;
+}
+
+.header-wrapper {
+  display: inline-block;
+  width: 80vmin;
+}
+
+#about {
+  margin-left: 35vmin;
+  margin-right: 35vmin;
+  margin-top: 50px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  border-style: dashed;
+  border-width: 2px;
+  border-color: gray;
+}
+
+.info {
+  color: #aeaeae;
+  font-size: 120%;
+  line-height: 25px;
+  margin: auto;
+  padding-top: 0px;
+  width: 80vmin;
+  text-align: left;
+}
+
+ul {
+  color: #aeaeae;
+  font-size: 120%;
+  margin: auto;
+  padding-top: 0px;
+  width: 80vmin;
+  text-align: left;
+}
+
+li {
+  padding-bottom: 10px;
+}
+
+p {
+  text-align: center;
+  font-size: 100%;
+  color: white;
+  display: block;
+  margin-top: 5px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.info a {
+  text-decoration: underline;
+}
+
+a:not(#title):hover {
+  text-decoration: underline;
+}
+
+hr {
+  width: 60%;
+}
+
+button:hover {
+  background: gray;
+}
+
+button img {
+  width: 50px;
+  height: 25px;
+}
+
+button {
+  border-radius: 3px;
+  margin-left: 5px;
+  margin-right: 5px;
+  border-top: 1px solid #EEE;
+  background: #666;
+  padding: 4px 8px;
+  box-shadow: rgba(0,0,0,1) 0 1px 0;
+  color: white;
+  font-size: 15px;
+  font-family: verdana, serif;
+  text-decoration: none;
+  vertical-align: middle;
+}
+
+/*----- CARDs -----*/
+
+@keyframes expandBorder {
+  from {
+    border-width: 0px;
+    padding: 0px;
+  }
+  to {
+    border-width: 20px;
+    border-width: 2vmin;
+    padding: 20px;
+  }
+}
+
+.card {
+  display: inline-block;
+  background: lightgray;
+  vertical-align: middle;
+  border-radius: 20px;
+  width: 170px;
+  height: 230px;
+  width: 18vmin;
+  height: 23vmin;
+  margin-right: 10px;
+  margin-left: 10px;
+  box-shadow: 0px 5px gray;
+  font-weight: bold;
+  font-size: 110%;
+  font-size: 2vmin;
+}
+
+.card:hover {
+  background: white;
+  box-shadow: 0px 7px gray;
+}
+
+.card img {
+  width: 90px;
+  height: 90px;
+  width: 10vmin;
+  height: 10vmin;
+  padding-top: 25%;
+  padding-bottom: 25px;
+  padding-bottom: 3vmin;
+  vertical-align: middle;
+}
+
+#microphone {
+  width: 100px;
+  height: 100px;
+  width: 11vmin;
+  height: 11vmin;
+  border-style: double;
+  border-width: 20px;
+  border-width: 2vmin;
+  border-color: black;
+  border-radius: 100%;
+  padding: 20px;
+  vertical-align: middle;
+  animation-name: expandBorder;
+  animation-duration: 1s;
+}
+
+.arrow {
+  width: 70px;
+  height: 70px;
+  width: 8vmin;
+  height: 8vmin;
+  vertical-align: middle;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+@media screen and (max-width: 600px) {
+  .arrow {
+    visibility: hidden;
+    display: none;
+  }
+}
+
+#left-arrow {transform: rotate(180deg);}
+
+/*-----Title-----*/
+
+h1 {
+  font-family: Verdana;
+  text-align: center;
+  font-size: 7.5vmin;
+  color: #7a7a7a;
+  background: #292929;
+  padding: 10px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  border-style: inset inset none outset;
+  border-color: gray;
+  text-shadow: 0px -2px gray;
+  overflow: hidden;
+}
+
+#note sub {
+  font-size: 43%;
+  color: lightgray;
+}
+
+.subtitle {
+  text-align: center;
+  padding: 5px 5px;
+  margin-bottom: 0px;
+  background: #242424;
+  border-style: none inset outset outset;
+  border-color: gray;
+  font-size: 3vmin;
+  color: silver;
+}
+
+/*----- CONTACT -----*/
+
+#contact {
+  font-size: 200%;
+  font-weight: bold;
+  margin: 0px;
+  color: white;
+}
+
+.label {
+  font-size: 50%;
+  margin-top: 0px;
+}
+
+textarea {
+  display: inline-block;
+  resize: none;
+  height: 20px;
+  width: 300px;
+}
+
+#body {
+  resize: both;
+  height: 100px;
+}
+
+/*----- SOCIAL MEDIA BUTTONS -----*/
+
+.share a {
+  margin-top: 10px;
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 4px;
+  text-align: center;
+  background: rgb(230, 230, 230);
+  border: 2px solid gray; 
+}
+
+.share a:hover {
+  background: white;
+}
+
+.share img {
+  margin-top: 5px;
+  width: 25px;
+  height: 25px;
+}
+
+.share-btn {
+  display: inline-block;
+}
+
+.count {
+  margin-top: 5px;
+  display: inline-block;
+  height: 20px;
+  width: 36px;
+  background: rgb(200,200,200);
+  border-radius: 3px;
+  margin-top: -2px;
+  border: 2px solid gray;
+  margin-left: 0;
+  padding-left: 0;
+  margin-right: 0;
+  padding-right: 0;
+}
+
+#plug {
+  background: gray;
+  color: #DDDDDD;
+  border-left: 3px solid white;
+  margin-top: 10px;
+  padding: 6px;
+  font-size: 14px;
+  font-family: Verdana;
+}
+
+#plug a {
+  text-decoration: underline;
+}
+
+/*-----Ads-----*/
+
+.adspace {
+  display: inline-block;
+  margin-bottom: 0px;
+}
+
+#adspace_1, #adspace_2 {
+  width: 20vmin;
+  position: absolute;
+}
+
+#adspace_1 {
+  left: 0;
+}
+
+#adspace_2 {
+  right: 0;
+}
+
+#adspace_3 {
+  display: block;
+  height: 20vmin;
+}
+
+.adsbygoogle {
+  border-style: dashed;
+  border-color: rgba(0, 0, 0, .05);
+}

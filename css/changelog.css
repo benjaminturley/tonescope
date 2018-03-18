@@ -1,0 +1,19 @@
+/*-----CHANGELOG-----*/
+
+.date {
+  text-align: left;
+}
+
+.changeTitle {
+  text-align: left;
+}
+
+li {
+  text-align: left;
+  color: white;
+  padding-left: 2px;
+}
+
+ul {
+	padding-left: 0px;
+}

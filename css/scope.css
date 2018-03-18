@@ -1,0 +1,60 @@
+#noteElem {
+  display: inline-block;
+  border-radius: 10px;
+  background: #666;
+  border-style: groove ridge groove groove;
+  border-color: gray;
+  width: 500px;
+  height: 500px;
+  width: 45vmin;
+  height: 45vmin;
+  max-width: 500px;
+  max-height: 500px;
+  margin-bottom: -63px;
+  margin-bottom: -5vmin;
+}
+
+#note {
+  font-size: 350px;
+  font-size: 25vmin;
+  text-shadow: -3px -3px #888;
+
+  margin: 0 auto;
+}
+
+#noteList {
+  color: white;
+  margin-left: 10%;
+  margin-right: 10%;
+  border-radius: 5px;
+  background: rgba(255,255,255,.05);
+}
+
+#pitchElem {
+  display: inline-block;
+  border-radius: 0px 0px 10px 10px;
+  background: gray;
+  border-color: gray;
+  border-style: none ridge groove groove;
+  margin-bottom: 0px;
+  width: 500px;
+  height: 63px;
+  width: 45vmin;
+  height: 5vmin;
+  max-width: 500px;
+}
+
+#pitch {
+  font-size: 40px;
+  font-size: 4vmin;
+  text-decoration: bold;
+  font-weight: bold;
+}
+
+#graph {
+  display: block;
+  margin: auto;
+  height: 150px;
+  width: 45vmin;
+  height: 15vmin;
+}

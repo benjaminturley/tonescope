@@ -1,0 +1,52 @@
+#warning {
+	display: inline-block;
+	padding: 10px;
+	color: white;
+	text-shadow: 1px 2px gray;
+}
+
+.inputs, .options {
+	display: inline-block;
+}
+
+.inputs label {
+  display: block;
+	color: white;
+	font-size: 130%;
+}
+
+.inputs input {
+	text-align: center;
+	font-size: 200%;
+	font-weight: bold;
+  width: 100%;
+  margin-top: 5px;
+}
+
+#frequency {
+  border-style: solid;
+  border-radius: 3px;
+  border-width: 2px;
+  border-color: #36588F;
+}
+
+#note, #octave {
+  background: rgba(255,255,255,.2);
+  border-color: rgba(150,150,150,0);
+  text-shadow: 1px 1px rgba(150,150,150,.8);
+}
+
+#slider {
+  width: 45%;
+  margin-top: 25px;
+}
+
+.options label {
+  margin-top: 5px;
+  display: block;
+  color: gray;
+}
+
+#wave-title {
+  font-size: 150%;
+}
